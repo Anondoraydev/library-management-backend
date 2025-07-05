@@ -48,7 +48,6 @@ exports.booksRoutes.get('/', (req, res) => __awaiter(void 0, void 0, void 0, fun
         const limitNum = Number(limit);
         const pageNum = Number(page);
         const skip = (pageNum - 1) * limitNum;
-        // const books = await Book.find(query).sort(sortOption).limit(Number(limit))
         const [books, total] = yield Promise.all([
             books_model_1.Book.find(query).sort(sortOption).skip(skip).limit(limitNum),
             books_model_1.Book.countDocuments(query)
